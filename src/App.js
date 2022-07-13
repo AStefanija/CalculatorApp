@@ -1,26 +1,31 @@
+import React from "react";
+
+
 function App() {
+    const [result, setResult] = React.useState("");
+    const [textBox, setTextBox] = React.useState("");
 
     function display(value) {
-        return document.getElementById("result").value += value;
+        setResult(result + value);
     }
-
-    function sum() {
-        let str = document.getElementById("result").value;
-        let result = eval(str);
-        document.getElementById("result").value = result;
-        document.getElementById("textBox").value = str + " = " + result;
+    const clear = () => {
+        setResult("");
+    }
+    const sum = () => {
+        setResult(eval(result));
+        setTextBox(result + "=" + eval(result));
     }
 
   return (
     <div className="App">
         <table className="calculator">
             <tr>
-                <td colSpan="3"><input id="textBox" readOnly={true}/></td>
+                <td colSpan="3"><input id="textBox" readOnly={true} value={textBox}/></td>
             </tr>
             <tr>
-                <td colSpan="3"><input id="result"/></td>
+                <td colSpan="3"><input value={result} id="result"/></td>
                 <td>
-                    <button type="button" onClick={() => document.getElementById('result').value = ''} id="ce">CE</button>
+                    <button type="button" onClick={clear} id="ce">CE</button>
                 </td>
             </tr>
             <tr>
@@ -76,7 +81,7 @@ function App() {
                     <button type="button" onClick={() => display(".")}>.</button>
                 </td>
                 <td>
-                    <button type="button" onClick={() => sum()} id="sum">=</button>
+                    <button type="button" onClick={sum} id="sum">=</button>
                 </td>
             </tr>
         </table>
