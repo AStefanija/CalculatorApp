@@ -24,7 +24,7 @@
     width: 100px;
     height: 35px;
     font-family: Arial;
-    font-size: 21px;
+    font-size: 18px;
 }
 
 td button {
@@ -60,4 +60,10 @@ td button {
 }
 #textBox:hover {
     background-color: #f3f4f4;
+}
+#backspace{
+    width: 100px;
+    height: 35px;
+    font-family: Arial;
+    font-size: 18px;
 }

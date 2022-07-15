@@ -15,12 +15,18 @@ function App() {
         setResult(eval(result));
         setTextBox(result + "=" + eval(result));
     }
+    const backspace = () => {
+        setResult(result.slice(0,-1));
+    }
 
   return (
     <div className="App">
         <table className="calculator">
             <tr>
                 <td colSpan="3"><input id="textBox" readOnly={true} value={textBox}/></td>
+                <td>
+                    <button type="button" onClick={backspace} id="backspace">Backspace</button>
+                </td>
             </tr>
             <tr>
                 <td colSpan="3"><input value={result} id="result"/></td>
